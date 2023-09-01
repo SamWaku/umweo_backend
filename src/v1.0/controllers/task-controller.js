@@ -9,4 +9,9 @@ const TaskController = () => {
         res.status(400).json(error);
     }
   };
+  return{
+    CreateTask
+  }
 };
+
+module.exports=TaskController();

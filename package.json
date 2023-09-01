@@ -4,7 +4,8 @@
   "description": "the official backend for the umweo platform",
   "main": "server.js",
   "scripts": {
-    "test": "npm start"
+    "test": "npm start",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
