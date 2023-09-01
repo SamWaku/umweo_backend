@@ -16,6 +16,8 @@ model User {
   email    String @unique
   password String
   activities Activity[]
+  tasks Tasks[]
+  recordings Recordings[]
 }
 
 model Therapist {
@@ -33,6 +35,8 @@ model Recordings {
   date        DateTime  @default(now())
   therapist   Therapist @relation(fields: [therapistId], references: [id])
   therapistId Int
+  user User @relation(fields: [userId],references: [id])
+  userId Int
 }
 
 model Tasks {
@@ -41,6 +45,8 @@ model Tasks {
   description String
   therapist   Therapist @relation(fields: [therapistId], references: [id])
   therapistId Int
+  user User @relation(fields: [userId],references: [id])
+  userId Int
 }
 
 model Schedule{
