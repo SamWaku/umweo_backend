@@ -31,10 +31,21 @@ const TaskController = () => {
       console.log(error);
     }
   };
+  const DeleteTaskById = async (req, res) => {
+    try {
+      const { id } = req.params;
+      await taskService.deleteTask(id);
+      res.status(200).json("Task Deleted");
+    } catch (error) {
+      res.status(400).json(error);
+      console.log(error);
+    }
+  };
   return {
     CreateTask,
     GetTaskById,
-    UpdateTaskById
+    UpdateTaskById,
+    DeleteTaskById
   };
 };
 
