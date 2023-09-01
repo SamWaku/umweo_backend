@@ -1,6 +1,7 @@
 const taskService = require("../services/task-service");
 
 const TaskController = () => {
+  //Create task
   const CreateTask = async (req, res) => {
     try {
       const data = req.body;
@@ -14,6 +15,8 @@ const TaskController = () => {
       console.log(error);
     }
   };
+
+  // Get task by id
   const GetTaskById = async (req, res) => {
     try {
       const { id } = req.params;
@@ -30,6 +33,8 @@ const TaskController = () => {
       console.log(error);
     }
   };
+
+   // Update task by id
   const UpdateTaskById = async (req, res) => {
     try {
       const { id } = req.params;
@@ -47,6 +52,8 @@ const TaskController = () => {
       console.log(error);
     }
   };
+
+   // Delete task by id
   const DeleteTaskById = async (req, res) => {
     try {
       const { id } = req.params;
