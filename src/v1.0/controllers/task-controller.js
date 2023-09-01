@@ -20,6 +20,14 @@ const TaskController = () => {
       console.log(error);
     }
   };
+  const UpdateTaskById = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const data=req.body;
+      const task = await taskService.updateTask(id,data);
+      res.status(200).json(task);
+    } catch (error) {}
+  };
   return {
     CreateTask,
     GetTaskById,
