@@ -33,7 +33,13 @@ const TaskController = () => {
   const UpdateTaskById = async (req, res) => {
     try {
       const { id } = req.params;
+      if (!id) {
+        return res.status(400).json("Enter valid ID!");
+      }
       const data = req.body;
+      if (!data) {
+        return res.status(400).json("Enter valid data!");
+      }
       const task = await taskService.updateTask(id, data);
       res.status(200).json(task);
     } catch (error) {
@@ -44,6 +50,9 @@ const TaskController = () => {
   const DeleteTaskById = async (req, res) => {
     try {
       const { id } = req.params;
+      if (!id) {
+        return res.status(400).json("Enter valid ID!");
+      }
       await taskService.deleteTask(id);
       res.status(200).json("Task Deleted");
     } catch (error) {
