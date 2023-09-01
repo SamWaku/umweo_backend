@@ -38,4 +38,14 @@ model Tasks{
 
 model Session{
   id Int @id @default(autoincrement())
+  type String
+  preference String
 }
+
+model Activity{
+  id Int @id @default(autoincrement())
+  name String
+  title String
+  description String
+}
+
