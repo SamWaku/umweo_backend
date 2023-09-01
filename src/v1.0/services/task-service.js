@@ -9,8 +9,8 @@ const TaskService = () => {
     const task = await taskRepository.getTaskById(id);
     return task;
   };
-  const updateTask = async (data) => {
-    const updatedTask = await taskRepository.updateTask(data);
+  const updateTask = async (id,data) => {
+    const updatedTask = await taskRepository.updateTask(id,data);
     return updatedTask;
   };
   const deleteTask = async (id) => {
