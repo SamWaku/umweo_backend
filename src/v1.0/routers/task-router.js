@@ -8,6 +8,9 @@ router.post("/", taskController.CreateTask);
 // get task by id /tasks/:id
 router.get("/:id", taskController.GetTaskById);
 
+// get tasks by id /tasks
+router.get("/", taskController.GetTasks);
+
 // update task by id /tasks/:id
 router.put("/:id", taskController.UpdateTaskById);
 

@@ -34,6 +34,20 @@ const TaskController = () => {
     }
   };
 
+  // Get tasks
+  const GetTasks = async (req, res) => {
+    try {
+      const tasks = await taskService.getTasks();
+      if (!tasks) {
+        return res.status(400).json("Tasks unavailable");
+      }
+      res.status(200).json(tasks);
+    } catch (error) {
+      res.status(400).json(error);
+      console.log(error);
+    }
+  };
+
    // Update task by id
   const UpdateTaskById = async (req, res) => {
     try {
@@ -70,6 +84,7 @@ const TaskController = () => {
   return {
     CreateTask,
     GetTaskById,
+    GetTasks,
     UpdateTaskById,
     DeleteTaskById,
   };

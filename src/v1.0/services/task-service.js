@@ -7,6 +7,12 @@ const TaskService = () => {
     return task;
   };
 
+  // Get tasks
+  const getTasks = async () => {
+    const tasks = await taskRepository.getTasks();
+    return tasks;
+  };
+
   // Get task by id
   const getTaskById = async (id) => {
     const task = await taskRepository.getTaskById(id);
@@ -23,10 +29,11 @@ const TaskService = () => {
   const deleteTask = async (id) => {
     await taskRepository.deleteTaskById(id);
   };
-  
+
   return {
     createTask,
     getTaskById,
+    getTasks,
     updateTask,
     deleteTask,
   };
