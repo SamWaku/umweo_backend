@@ -10,8 +10,18 @@ const TaskController = () => {
         console.log(error);
     }
   };
+  const GetTaskById=async(req,res)=>{
+    try {
+        const task=await taskService.getTaskById(req.params,req.body);
+        res.status(200).json(task);
+    } catch (error) {
+        res.status(400).json(error);
+        console.log(error);
+    }
+  }
   return{
-    CreateTask
+    CreateTask,
+    GetTaskById
   }
 };
 
