@@ -14,14 +14,14 @@ const TaskRepository = () => {
   const getTaskById = async (id) => {
     return prisma.tasks.findUnique({
       where: {
-        id,
+        id:parseInt(id)
       },
     });
   };
   const updateTask = async (id, data) => {
     return prisma.tasks.update({
       where: {
-        id,
+        id:parseInt(id)
       },
       data: {
         data,
@@ -31,7 +31,7 @@ const TaskRepository = () => {
   const deleteTaskById = async (id) => {
     return prisma.tasks.delete({
       where: {
-        id,
+        id:parseInt(id)
       },
     });
   };
