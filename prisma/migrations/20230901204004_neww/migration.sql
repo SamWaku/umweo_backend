@@ -14,7 +14,6 @@ CREATE TABLE "Therapist" (
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "type" TEXT NOT NULL,
 
     CONSTRAINT "Therapist_pkey" PRIMARY KEY ("id")
 );

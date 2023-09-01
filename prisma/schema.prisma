@@ -22,18 +22,23 @@ model Therapist{
   name String
   email String @unique
   password String
-  type String
+  recordings Recordings[]
+  tasks Tasks[]
 }
 
 model Recordings{
   id Int @id @default(autoincrement())
-  url String
+  date DateTime @default(now())
+  therapist Therapist @relation(fields: [therapistId],references: [id])
+  therapistId Int
 }
 
 model Tasks{
   id Int @id @default(autoincrement())
   title String
   description String
+  therapist Therapist @relation(fields: [therapistId],references: [id])
+   therapistId Int
 }
 
 model Session{
