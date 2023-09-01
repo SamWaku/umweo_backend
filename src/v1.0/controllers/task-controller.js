@@ -4,8 +4,8 @@ const TaskController = () => {
   const CreateTask = async (req, res) => {
     try {
       const data = req.body;
-      if(!data){
-        return res.status(400).json("Enter valid data!")
+      if (!data) {
+        return res.status(400).json("Enter valid data!");
       }
       const task = await taskService.createTask(data);
       res.status(200).json(task);
@@ -17,12 +17,12 @@ const TaskController = () => {
   const GetTaskById = async (req, res) => {
     try {
       const { id } = req.params;
-      if(!id){
-        return res.status(400).json("Enter valid ID!")
+      if (!id) {
+        return res.status(400).json("Enter valid ID!");
       }
       const task = await taskService.getTaskById(id);
-      if(!task){
-        return res.status(400).json("Task doesn't exist!")
+      if (!task) {
+        return res.status(400).json("Task doesn't exist!");
       }
       res.status(200).json(task);
     } catch (error) {
