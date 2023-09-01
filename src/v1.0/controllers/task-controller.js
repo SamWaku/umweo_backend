@@ -7,6 +7,7 @@ const TaskController = () => {
       res.status(200).json(task);
     } catch (error) {
         res.status(400).json(error);
+        console.log(error);
     }
   };
   return{

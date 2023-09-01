@@ -2,6 +2,6 @@ const taskController = require("../controllers/task-controller");
 
 const router=require('express').Router();
 
-router.get('/',taskController.CreateTask);
+router.post('/',taskController.CreateTask);
 
 module.exports=router;
