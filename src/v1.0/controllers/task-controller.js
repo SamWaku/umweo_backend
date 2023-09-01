@@ -18,6 +18,9 @@ const TaskController = () => {
     try {
       const { id } = req.params;
       const task = await taskService.getTaskById(id);
+      if(!task){
+        return res.status(400).json("Task doesn't exist!")
+      }
       res.status(200).json(task);
     } catch (error) {
       res.status(400).json(error);
