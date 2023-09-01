@@ -8,6 +8,9 @@ const TaskService = () => {
   };
   const getTaskById = async (id) => {
     const task = await taskRepository.getTaskById(id);
+    if(!task){
+        throw new Error("No task found")
+    }
     return task;
   };
   const updateTask = async (data) => {
