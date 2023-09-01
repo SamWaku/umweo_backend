@@ -42,4 +42,4 @@ const TaskRepository=()=>{
     }
 }
 
-module.exports=TaskRepository;
+module.exports=TaskRepository();
