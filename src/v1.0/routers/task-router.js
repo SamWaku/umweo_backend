@@ -2,16 +2,16 @@ const taskController = require("../controllers/task-controller");
 
 const router = require("express").Router();
 
-// create task
+// create task /tasks
 router.post("/", taskController.CreateTask);
 
-// get task by id
+// get task by id /tasks/:id
 router.get("/:id", taskController.GetTaskById);
 
-// update task by id
+// update task by id /tasks/:id
 router.put("/:id", taskController.UpdateTaskById);
 
-// delete task by id
+// delete task by id /tasks/:id
 router.delete("/:id", taskController.DeleteTaskById);
 
 module.exports = router;
