@@ -6,24 +6,24 @@ const TaskController = () => {
       const task = await taskService.createTask(req.body);
       res.status(200).json(task);
     } catch (error) {
-        res.status(400).json(error);
-        console.log(error);
+      res.status(400).json(error);
+      console.log(error);
     }
   };
-  const GetTaskById=async(req,res)=>{
+  const GetTaskById = async (req, res) => {
     try {
-        const{id}=req.params;
-        const task=await taskService.getTaskById(id);
-        res.status(200).json(task);
+      const { id } = req.params;
+      const task = await taskService.getTaskById(id);
+      res.status(200).json(task);
     } catch (error) {
-        res.status(400).json(error);
-        console.log(error);
+      res.status(400).json(error);
+      console.log(error);
     }
-  }
-  return{
+  };
+  return {
     CreateTask,
-    GetTaskById
-  }
+    GetTaskById,
+  };
 };
 
-module.exports=TaskController();
+module.exports = TaskController();
