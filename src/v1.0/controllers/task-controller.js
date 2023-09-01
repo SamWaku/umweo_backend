@@ -34,6 +34,7 @@ const TaskController = () => {
   return {
     CreateTask,
     GetTaskById,
+    UpdateTaskById
   };
 };
 
