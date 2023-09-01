@@ -23,7 +23,7 @@ const TaskRepository = () => {
       where: {
         id: parseInt(id),
       },
-      data
+      data,
     });
   };
   const deleteTaskById = async (id) => {
