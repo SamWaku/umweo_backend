@@ -1,6 +1,5 @@
 const taskRepository = require("../repositories/task-repository");
 
-
 const TaskService = () => {
   const createTask = async (data) => {
     const task = await taskRepository.createTask(data);
