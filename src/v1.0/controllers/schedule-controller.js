@@ -31,6 +31,8 @@ const ScheduleController = () => {
       console.log(error);
     }
   };
+
+  // update schedule by ID 
   const UpdateScheduleByID = async (req, res) => {
     try {
       const { id } = req.params;
