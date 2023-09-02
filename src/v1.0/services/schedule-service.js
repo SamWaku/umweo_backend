@@ -13,6 +13,8 @@ const ScheduleService = () => {
   const DeleteSchedule = async (id) => {
     await ScheduleRepository.deleteScheduleById(id);
   };
+
+  // update schedule by ID 
   const UpdateSchedule = async (id, data) => {
     const schedule = await ScheduleRepository.updateSchedule(id, data);
     return schedule;
