@@ -6,6 +6,7 @@ const ScheduleService = () => {
     const schedule = await ScheduleRepository.getScheduleById(id);
     return schedule;
   };
+  
   // post schedule
   const CreateSchedule = async (data) => {
     const schedule = await ScheduleRepository.createSchedule(data);
