@@ -1,6 +1,7 @@
 const scheduleService = require("../services/schedule-service");
 
 const ScheduleController = () => {
+  // get schedule by ID
   const GetScheduleByID = async (req, res) => {
     try {
       const { id } = req.params;
