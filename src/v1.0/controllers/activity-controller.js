@@ -16,6 +16,7 @@ const ActivityController = () => {
     }
   };
 
+  // get activity by ID
   const GetActivityById = async (req, res) => {
     try {
       const { id } = req.params;
