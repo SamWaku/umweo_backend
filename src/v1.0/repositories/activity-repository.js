@@ -17,7 +17,7 @@ const ActivityRepository = () => {
     });
   };
 
-  // update activity by ID 
+  // update activity by ID
   const UpdateActivityByID = async (id, data) => {
     return prisma.activity.update({
       where: {
@@ -27,7 +27,7 @@ const ActivityRepository = () => {
     });
   };
 
-  // delete activity by ID 
+  // delete activity by ID
   const DeleteActivityByID = async (id) => {
     return prisma.activity.delete({
       where: {
