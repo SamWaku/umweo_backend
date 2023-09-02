@@ -31,7 +31,13 @@ const ActivityController = () => {
   const UpdateActivityById = async (req, res) => {
     try {
       const { id } = req.params;
+      if (!id) {
+        return res.status(400).json("Enter valid ID");
+      }
       const data = req.body;
+      if (!data) {
+        return res.status(400).json("Enter valid data");
+      }
       const activity = await activityService.updateActivity(id, data);
       res.status(200).json(activity);
     } catch (error) {
@@ -42,7 +48,7 @@ const ActivityController = () => {
   return {
     CreateActivity,
     GetActivityById,
-    UpdateActivityById
+    UpdateActivityById,
   };
 };
 
