@@ -10,10 +10,10 @@ const ActivityService = () => {
     return activity;
   };
   const deleteActivity = async (id) => {
-    await activityRepository.deleteActivity(id);
+    await activityRepository.DeleteActivityByID(id);
   };
-  const getActivity = async (id) => {
-    const activity = activityRepository.getActivity(id);
+  const getActivityById = async (id) => {
+    const activity = activityRepository.GetActivityByID(id);
     return activity;
   };
 
@@ -21,7 +21,7 @@ const ActivityService = () => {
     createActivity,
     UpdateActivity,
     deleteActivity,
-    getActivity,
+    getActivityById,
   };
 };
 
