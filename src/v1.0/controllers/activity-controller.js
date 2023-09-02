@@ -45,6 +45,18 @@ const ActivityController = () => {
       res.status(400).json(error);
     }
   };
+  const DeleteActivityByID = async (req, res) => {
+    try {
+      const { id } = req.params;
+      if (!id) {
+        return res.status(400).json("Enter valid ID");
+      }
+      await activityService.deleteActivity(id);
+    } catch (error) {
+      console.log(error);
+      res.status(400).json(error);
+    }
+  };
   return {
     CreateActivity,
     GetActivityById,
