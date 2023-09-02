@@ -42,6 +42,7 @@ const ActivityController = () => {
   return {
     CreateActivity,
     GetActivityById,
+    UpdateActivityById
   };
 };
 
