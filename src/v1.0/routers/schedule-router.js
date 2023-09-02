@@ -1,9 +1,16 @@
 const scheduleController = require("../controllers/schedule-controller");
 const ScheduleRouter = require("express").Router();
 
-ScheduleRouter.get("/:id",scheduleController.GetScheduleByID);
-ScheduleRouter.delete("/:id",scheduleController.DeleteScheduleByID);
-ScheduleRouter.put("/:id",scheduleController.UpdateScheduleByID);
-ScheduleRouter.post("/",scheduleController.CreateSchedule);
+// get schedule by ID i.e /schedule/:id
+ScheduleRouter.get("/:id", scheduleController.GetScheduleByID);
 
-module.exports=ScheduleRouter;
+// delete schedule by ID i.e /schedule/:id
+ScheduleRouter.delete("/:id", scheduleController.DeleteScheduleByID);
+
+// update schedule by ID i.e /schedule/:id
+ScheduleRouter.put("/:id", scheduleController.UpdateScheduleByID);
+
+// post schedule i.e /schedule
+ScheduleRouter.post("/", scheduleController.CreateSchedule);
+
+module.exports = ScheduleRouter;
