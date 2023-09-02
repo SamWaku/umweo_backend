@@ -18,6 +18,7 @@ model User {
   activities Activity[]
   tasks Tasks[]
   recordings Recordings[]
+  schedule Schedule[]
 }
 
 model Therapist {
@@ -32,10 +33,10 @@ model Therapist {
 
 model Recordings {
   id          Int       @id @default(autoincrement())
-  date        DateTime  @default(now())
-  therapist   Therapist @relation(fields: [therapistId], references: [id])
-  therapistId Int
-  user User @relation(fields: [userId],references: [id])
+  date        DateTime?  @default(now())
+  therapist   Therapist? @relation(fields: [therapistId], references: [id])
+  therapistId Int?
+  user User? @relation(fields: [userId],references: [id])
   userId Int
 }
 
@@ -43,19 +44,21 @@ model Tasks {
   id          Int       @id @default(autoincrement())
   title       String
   description String
-  therapist   Therapist @relation(fields: [therapistId], references: [id])
-  therapistId Int
-  user User @relation(fields: [userId],references: [id])
-  userId Int
+  therapist   Therapist? @relation(fields: [therapistId], references: [id])
+  therapistId Int?
+  user User? @relation(fields: [userId],references: [id])
+  userId Int?
 }
 
 model Schedule{
   id          Int       @id @default(autoincrement())
-  date        DateTime  @default(now())
-  therapist   Therapist @relation(fields: [therapistId], references: [id])
-  therapistId Int
+  date        DateTime?  @default(now())
+  therapist   Therapist? @relation(fields: [therapistId], references: [id])
+  therapistId Int?
   title String
   time String
+  user User? @relation(fields: [userId],references: [id])
+  userId Int?
 }
 
 model Activity {
@@ -63,6 +66,6 @@ model Activity {
   name        String
   title       String
   description String
-  user User @relation(fields: [userId],references: [id])
-  userId Int
+  user User? @relation(fields: [userId],references: [id])
+  userId Int?
 }
