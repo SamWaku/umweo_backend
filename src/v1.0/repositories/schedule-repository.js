@@ -1,6 +1,8 @@
 const { prisma } = require("../config/db");
 
 const ScheduleRepository = () => {
+
+  // get schedule by ID
   const getScheduleById = async (id) => {
     return prisma.schedule.findUnique({
       where: {
