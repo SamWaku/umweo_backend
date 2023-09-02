@@ -6,6 +6,12 @@ const ActivityService = () => {
     const activity = activityRepository.CreateActivity(data);
     return activity;
   };
+
+   // get activity by ID
+  const getActivityById = async (id) => {
+    const activity = activityRepository.GetActivityByID(id);
+    return activity;
+  };
   const updateActivity = async (id, data) => {
     const activity = activityRepository.UpdateActivityByID(id, data);
     return activity;
@@ -13,11 +19,6 @@ const ActivityService = () => {
   const deleteActivity = async (id) => {
     await activityRepository.DeleteActivityByID(id);
   };
-  const getActivityById = async (id) => {
-    const activity = activityRepository.GetActivityByID(id);
-    return activity;
-  };
-
   return {
     createActivity,
     updateActivity,
