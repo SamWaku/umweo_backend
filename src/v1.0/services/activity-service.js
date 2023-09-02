@@ -1,25 +1,25 @@
 const activityRepository = require("../repositories/activity-repository");
 
 const ActivityService = () => {
-    // create activity
+  // create activity
   const createActivity = async (data) => {
     const activity = activityRepository.CreateActivity(data);
     return activity;
   };
 
-   // get activity by ID
+  // get activity by ID
   const getActivityById = async (id) => {
     const activity = activityRepository.GetActivityByID(id);
     return activity;
   };
 
-  // update activity by ID 
+  // update activity by ID
   const updateActivity = async (id, data) => {
     const activity = activityRepository.UpdateActivityByID(id, data);
     return activity;
   };
 
-   // delete activity by ID 
+  // delete activity by ID
   const deleteActivity = async (id) => {
     await activityRepository.DeleteActivityByID(id);
   };
