@@ -27,6 +27,7 @@ const ActivityRepository = () => {
     });
   };
 
+  // delete activity by ID 
   const DeleteActivityByID = async (id) => {
     return prisma.activity.delete({
       where: {
