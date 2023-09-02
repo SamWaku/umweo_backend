@@ -15,6 +15,7 @@ const ScheduleController = () => {
       console.log(error);
     }
   };
+  
   // get schedule by ID
   const GetScheduleByID = async (req, res) => {
     try {
