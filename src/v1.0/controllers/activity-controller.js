@@ -1,6 +1,7 @@
 const activityService = require("../services/activity-service");
 
 const ActivityController = () => {
+    // create activity
   const CreateActivity = async (req, res) => {
     try {
       const data = req.body;
