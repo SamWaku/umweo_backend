@@ -11,14 +11,14 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  name     String
-  email    String @unique
-  password String
+  id         Int          @id @default(autoincrement())
+  name       String
+  email      String       @unique
+  password   String
   activities Activity[]
-  tasks Tasks[]
+  tasks      Tasks[]
   recordings Recordings[]
-  schedule Schedule[]
+  schedule   Schedule[]
 }
 
 model Therapist {
@@ -28,38 +28,39 @@ model Therapist {
   password   String
   recordings Recordings[]
   tasks      Tasks[]
-  schedule Schedule[]
+  schedule   Schedule[]
 }
 
 model Recordings {
-  id          Int       @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   date        DateTime?  @default(now())
-  url String
+  url         String
+  type        String
   therapist   Therapist? @relation(fields: [therapistId], references: [id])
   therapistId Int?
-  user User? @relation(fields: [userId],references: [id])
-  userId Int
+  user        User?      @relation(fields: [userId], references: [id])
+  userId      Int
 }
 
 model Tasks {
-  id          Int       @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   title       String
   description String
   therapist   Therapist? @relation(fields: [therapistId], references: [id])
   therapistId Int?
-  user User? @relation(fields: [userId],references: [id])
-  userId Int?
+  user        User?      @relation(fields: [userId], references: [id])
+  userId      Int?
 }
 
-model Schedule{
-  id          Int       @id @default(autoincrement())
+model Schedule {
+  id          Int        @id @default(autoincrement())
   date        DateTime?  @default(now())
   therapist   Therapist? @relation(fields: [therapistId], references: [id])
   therapistId Int?
-  title String
-  time String
-  user User? @relation(fields: [userId],references: [id])
-  userId Int?
+  title       String
+  time        String
+  user        User?      @relation(fields: [userId], references: [id])
+  userId      Int?
 }
 
 model Activity {
@@ -67,6 +68,6 @@ model Activity {
   name        String
   title       String
   description String
-  user User? @relation(fields: [userId],references: [id])
-  userId Int?
+  user        User?  @relation(fields: [userId], references: [id])
+  userId      Int?
 }
