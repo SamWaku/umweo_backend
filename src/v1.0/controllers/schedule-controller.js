@@ -1,6 +1,7 @@
 const scheduleService = require("../services/schedule-service");
 
 const ScheduleController = () => {
+  // post schedule
   const CreateSchedule = async (req, res) => {
     try {
       const data = req.body;
