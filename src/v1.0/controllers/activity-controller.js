@@ -32,6 +32,8 @@ const ActivityController = () => {
       res.status(400).json(error);
     }
   };
+
+  // update activity by ID 
   const UpdateActivityById = async (req, res) => {
     try {
       const { id } = req.params;
