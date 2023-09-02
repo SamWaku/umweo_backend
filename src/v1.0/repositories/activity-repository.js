@@ -1,6 +1,7 @@
 const { prisma } = require("../config/db");
 
 const ActivityRepository = () => {
+  // create activity
   const CreateActivity = async (data) => {
     return prisma.activity.create({
       data,
