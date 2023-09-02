@@ -9,8 +9,14 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+
+// Task router
 app.use("/tasks",taskRouter);
+
+// Schedule router
 app.use('/schedule',ScheduleRouter);
+
+// Activity router
 app.use('/activity',ActivityRouter);
 
 
