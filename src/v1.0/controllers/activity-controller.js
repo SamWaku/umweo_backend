@@ -52,6 +52,7 @@ const ActivityController = () => {
         return res.status(400).json("Enter valid ID");
       }
       await activityService.deleteActivity(id);
+      res.status(200).json("Activity deleted");
     } catch (error) {
       console.log(error);
       res.status(400).json(error);
@@ -61,6 +62,7 @@ const ActivityController = () => {
     CreateActivity,
     GetActivityById,
     UpdateActivityById,
+    DeleteActivityByID
   };
 };
 
