@@ -50,6 +50,8 @@ const ScheduleController = () => {
       console.log(error);
     }
   };
+
+  // delete schedule by ID
   const DeleteScheduleByID = async (req, res) => {
     try {
       const { id } = req.params;
