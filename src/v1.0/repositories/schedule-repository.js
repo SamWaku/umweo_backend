@@ -25,6 +25,8 @@ const ScheduleRepository = () => {
       data,
     });
   };
+
+  // delete schedule by ID
   const deleteScheduleById = async (id) => {
     return prisma.schedule.delete({
       where: {
