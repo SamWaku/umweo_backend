@@ -1,7 +1,7 @@
 const activityService = require("../services/activity-service");
 
 const ActivityController = () => {
-    // create activity
+  // create activity
   const CreateActivity = async (req, res) => {
     try {
       const data = req.body;
@@ -34,7 +34,7 @@ const ActivityController = () => {
     }
   };
 
-  // update activity by ID 
+  // update activity by ID
   const UpdateActivityById = async (req, res) => {
     try {
       const { id } = req.params;
@@ -53,7 +53,7 @@ const ActivityController = () => {
     }
   };
 
-   // delete activity by ID 
+  // delete activity by ID
   const DeleteActivityByID = async (req, res) => {
     try {
       const { id } = req.params;
@@ -71,7 +71,7 @@ const ActivityController = () => {
     CreateActivity,
     GetActivityById,
     UpdateActivityById,
-    DeleteActivityByID
+    DeleteActivityByID,
   };
 };
 
