@@ -5,7 +5,7 @@ const ActivityService = () => {
     const activity = activityRepository.CreateActivity(data);
     return activity;
   };
-  const UpdateActivity = async (id, data) => {
+  const updateActivity = async (id, data) => {
     const activity = activityRepository.UpdateActivityByID(id, data);
     return activity;
   };
@@ -19,7 +19,7 @@ const ActivityService = () => {
 
   return {
     createActivity,
-    UpdateActivity,
+    updateActivity,
     deleteActivity,
     getActivityById,
   };
