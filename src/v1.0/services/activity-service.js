@@ -12,6 +12,8 @@ const ActivityService = () => {
     const activity = activityRepository.GetActivityByID(id);
     return activity;
   };
+
+  // update activity by ID 
   const updateActivity = async (id, data) => {
     const activity = activityRepository.UpdateActivityByID(id, data);
     return activity;
