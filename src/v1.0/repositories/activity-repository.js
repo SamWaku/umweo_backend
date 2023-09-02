@@ -17,6 +17,7 @@ const ActivityRepository = () => {
     });
   };
 
+  // update activity by ID 
   const UpdateActivityByID = async (id, data) => {
     return prisma.activity.update({
       where: {
