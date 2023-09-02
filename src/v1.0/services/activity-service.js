@@ -18,6 +18,8 @@ const ActivityService = () => {
     const activity = activityRepository.UpdateActivityByID(id, data);
     return activity;
   };
+
+   // delete activity by ID 
   const deleteActivity = async (id) => {
     await activityRepository.DeleteActivityByID(id);
   };
