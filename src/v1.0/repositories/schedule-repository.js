@@ -10,6 +10,8 @@ const ScheduleRepository = () => {
       },
     });
   };
+  
+  // post schedule
   const createSchedule = (data) => {
     return prisma.schedule.create({
       data,
