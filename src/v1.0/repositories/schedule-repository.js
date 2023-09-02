@@ -15,6 +15,8 @@ const ScheduleRepository = () => {
       data,
     });
   };
+
+  // update schedule by ID 
   const updateSchedule = (id, data) => {
     return prisma.schedule.update({
       where: {
