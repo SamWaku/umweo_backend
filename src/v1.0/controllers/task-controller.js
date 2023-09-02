@@ -48,7 +48,7 @@ const TaskController = () => {
     }
   };
 
-   // Update task by id
+  // Update task by id
   const UpdateTaskById = async (req, res) => {
     try {
       const { id } = req.params;
@@ -67,7 +67,7 @@ const TaskController = () => {
     }
   };
 
-   // Delete task by id
+  // Delete task by id
   const DeleteTaskById = async (req, res) => {
     try {
       const { id } = req.params;
