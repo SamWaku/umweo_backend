@@ -22,6 +22,9 @@ const ActivityController = () => {
         return res.status(400).json("Enter valid ID");
       }
       const activity = await activityService.getActivityById(id);
+      if (!activity) {
+        return res.status(400).json("Activity doesn't exist");
+      }
       res.status(200).json(activity);
     } catch (error) {
       console.log(error);
