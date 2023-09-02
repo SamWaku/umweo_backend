@@ -52,6 +52,8 @@ const ActivityController = () => {
       res.status(400).json(error);
     }
   };
+
+   // delete activity by ID 
   const DeleteActivityByID = async (req, res) => {
     try {
       const { id } = req.params;
