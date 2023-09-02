@@ -15,7 +15,7 @@ const ActivityController = () => {
     }
   };
 
-  const GetActivityById = async (req,res) => {
+  const GetActivityById = async (req, res) => {
     try {
       const { id } = req.params;
       if (!id) {
@@ -28,9 +28,20 @@ const ActivityController = () => {
       res.status(400).json(error);
     }
   };
+  const UpdateActivityById = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const data = req.body;
+      const activity = await activityService.updateActivity(id, data);
+      res.status(200).json(activity);
+    } catch (error) {
+      console.log(error);
+      res.status(400).json(error);
+    }
+  };
   return {
     CreateActivity,
-    GetActivityById
+    GetActivityById,
   };
 };
 
