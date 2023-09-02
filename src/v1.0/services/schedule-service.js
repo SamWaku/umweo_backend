@@ -1,6 +1,7 @@
 const ScheduleRepository = require("../repositories/schedule-repository");
 
 const ScheduleService = () => {
+  // get schedule by ID
   const GetScheduleById = async (id) => {
     const schedule = await ScheduleRepository.getScheduleById(id);
     return schedule;
