@@ -8,6 +8,7 @@ const ActivityRepository = () => {
     });
   };
 
+  // get activity by ID
   const GetActivityByID = async (id) => {
     return prisma.activity.findUnique({
       where: {
