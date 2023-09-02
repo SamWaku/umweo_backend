@@ -1,6 +1,19 @@
 const scheduleService = require("../services/schedule-service");
 
 const ScheduleController = () => {
+  const CreateSchedule = async (req, res) => {
+    try {
+      const data = req.body;
+      if (!data) {
+        return res.status(400).json("Enter valid Data");
+      }
+      const schedule = await scheduleService.CreateSchedule(data);
+      res.status(200).json(schedule);
+    } catch (error) {
+      res.status(400).json(error);
+      console.log(error);
+    }
+  };
   // get schedule by ID
   const GetScheduleByID = async (req, res) => {
     try {
@@ -13,19 +26,6 @@ const ScheduleController = () => {
         return res.status(400).json("Schedule doesn't exist");
       }
       res.status(200).json(schedule);
-    } catch (error) {
-      res.status(400).json(error);
-      console.log(error);
-    }
-  };
-  const DeleteScheduleByID = async (req, res) => {
-    try {
-      const { id } = req.params;
-      if (!id) {
-        return res.status(400).json("Invalid ID");
-      }
-      await scheduleService.DeleteSchedule(id);
-      res.status(200).json("schedule deleted");
     } catch (error) {
       res.status(400).json(error);
       console.log(error);
@@ -48,19 +48,20 @@ const ScheduleController = () => {
       console.log(error);
     }
   };
-  const CreateSchedule = async (req, res) => {
+  const DeleteScheduleByID = async (req, res) => {
     try {
-      const data = req.body;
-      if (!data) {
-        return res.status(400).json("Enter valid Data");
+      const { id } = req.params;
+      if (!id) {
+        return res.status(400).json("Invalid ID");
       }
-      const schedule = await scheduleService.CreateSchedule(data);
-      res.status(200).json(schedule);
+      await scheduleService.DeleteSchedule(id);
+      res.status(200).json("schedule deleted");
     } catch (error) {
       res.status(400).json(error);
       console.log(error);
     }
   };
+
   return {
     GetScheduleByID,
     DeleteScheduleByID,
