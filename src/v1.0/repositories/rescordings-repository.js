@@ -13,6 +13,14 @@ const RecordingsRepository = () => {
       },
     });
   };
+  const updateRecord=async(id,data)=>{
+    return prisma.recordings.update({
+        where:{
+            id
+        },
+        data
+    })
+  }
   return {
     createRecording,
     getRecordingById,
