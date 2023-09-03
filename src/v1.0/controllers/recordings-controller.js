@@ -47,6 +47,9 @@ const RecordingsController=()=>{
     const deleteRecordingById=async(req,res)=>{
         try {
             const {id}=req.params;
+            if(!id){
+                return res.status(400).json("ID doesn't exist!");
+            }
             await recordingsService.DeleteRecordingByID(id);
             res.status(200).json("Recording Deleted");
         } catch (error) {
