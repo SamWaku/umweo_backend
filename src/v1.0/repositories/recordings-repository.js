@@ -9,7 +9,7 @@ const RecordingsRepository = () => {
     });
   };
 
-  // get recording
+  // get recording by id
   const getRecordingById = async (id) => {
     return prisma.recordings.findUnique({
       where: {
@@ -17,6 +17,8 @@ const RecordingsRepository = () => {
       },
     });
   };
+
+  // update recording by id
   const updateRecording = async (id, data) => {
     return prisma.recordings.update({
       where: {
@@ -25,6 +27,7 @@ const RecordingsRepository = () => {
       data,
     });
   };
+  // delete recording by id
   const deleteRecording = async (id) => {
     return prisma.recordings.delete({
       where: {
