@@ -1,10 +1,10 @@
-const { prisma } = require("../config/db");
+const { ScheduleModel } = require("../models/schedule-model");
 
 const ScheduleRepository = () => {
 
   // get schedule by ID
   const getScheduleById = async (id) => {
-    return prisma.schedule.findUnique({
+    return ScheduleModel.findUnique({
       where: {
         id:parseInt(id)
       },
@@ -13,14 +13,14 @@ const ScheduleRepository = () => {
   
   // post schedule
   const createSchedule = (data) => {
-    return prisma.schedule.create({
+    return ScheduleModel.create({
       data,
     });
   };
 
   // update schedule by ID 
   const updateSchedule = (id, data) => {
-    return prisma.schedule.update({
+    return ScheduleModel.update({
       where: {
         id:parseInt(id)
       },
@@ -30,7 +30,7 @@ const ScheduleRepository = () => {
 
   // delete schedule by ID
   const deleteScheduleById = async (id) => {
-    return prisma.schedule.delete({
+    return ScheduleModel.delete({
       where: {
         id:parseInt(id)
       },
