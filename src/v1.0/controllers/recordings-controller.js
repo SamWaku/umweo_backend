@@ -31,7 +31,8 @@ const RecordingsController=()=>{
         }
     }
     return{
-        createRecording
+        createRecording,
+        getRecordingById
     }
 }
 
