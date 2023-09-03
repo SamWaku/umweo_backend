@@ -43,7 +43,8 @@ const RecordingsController=()=>{
     }
     return{
         createRecording,
-        getRecordingById
+        getRecordingById,
+        updateRecordingById
     }
 }
 
