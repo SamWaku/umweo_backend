@@ -1,6 +1,6 @@
-const { prisma } = require("../config/db")
+const { prisma } = require("../config/db");
 
-exports.TaskModel=prisma.tasks
+exports.TaskModel = prisma.tasks;
 
 // model Tasks {
 //     id          Int        @id @default(autoincrement())
