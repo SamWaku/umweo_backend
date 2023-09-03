@@ -13,9 +13,13 @@ const RecordingsService = () => {
     const recording=await recordingsRepository.updateRecording(id,data);
     return recording;
   }
+  const DeleteRecordingByID=async(id)=>{
+    await recordingsRepository.deleteRecording(id);
+  }
   return {
     CreateRecording,
     GetRecordingByID,
+    DeleteRecordingByID
   };
 };
 
