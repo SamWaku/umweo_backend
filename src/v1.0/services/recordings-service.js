@@ -19,6 +19,7 @@ const RecordingsService = () => {
   return {
     CreateRecording,
     GetRecordingByID,
+    UpdateRecordingByID,
     DeleteRecordingByID,
   };
 };
