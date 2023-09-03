@@ -7,3 +7,5 @@ RecordingsRouter.post("/", recordingsController.createRecording);
 RecordingsRouter.get("/:id", recordingsController.getRecordingById);
 RecordingsRouter.put("/:id", recordingsController.updateRecordingById);
 RecordingsRouter.delete("/:id", recordingsController.deleteRecordingById);
+
+module.exports=RecordingsRouter;
