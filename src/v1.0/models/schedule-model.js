@@ -1,7 +1,6 @@
-const {prisma}=require('../config/db');
+const { prisma } = require("../config/db");
 
-exports.ScheduleModel=prisma.schedule
-
+exports.ScheduleModel = prisma.schedule;
 
 // model Schedule {
 //     id          Int        @id @default(autoincrement())
@@ -13,4 +12,3 @@ exports.ScheduleModel=prisma.schedule
 //     user        User?      @relation(fields: [userId], references: [id])
 //     userId      Int?
 //   }
-  
