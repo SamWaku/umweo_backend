@@ -21,9 +21,6 @@ const RecordingsController=()=>{
                 return res.status(400).json("ID doesn't exist!");
             }
             const recording=await recordingsService.GetRecordingByID(id);
-            if(!data){
-                return res.status(400).json("Recording doesn't exist!");
-            }
             res.status(200).json(recording);
         } catch (error) {
             res.status(400).json(error);
