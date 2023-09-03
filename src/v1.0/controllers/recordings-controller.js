@@ -1,7 +1,7 @@
 const recordingsService = require("../services/recordings-service");
 
 const RecordingsController = () => {
-    // create recording
+  // create recording
   const createRecording = async (req, res) => {
     try {
       const data = req.body;
@@ -15,8 +15,8 @@ const RecordingsController = () => {
       console.log(error);
     }
   };
-  
-// get recording by id
+
+  // get recording by id
   const getRecordingById = async (req, res) => {
     try {
       const { id } = req.params;
@@ -24,7 +24,7 @@ const RecordingsController = () => {
         return res.status(400).json("ID doesn't exist!");
       }
       const recording = await recordingsService.GetRecordingByID(id);
-      if(!recording){
+      if (!recording) {
         return res.status(400).json("Recording doesn't exist!");
       }
       res.status(200).json(recording);
@@ -34,7 +34,7 @@ const RecordingsController = () => {
     }
   };
 
-// update recording by id
+  // update recording by id
   const updateRecordingById = async (req, res) => {
     try {
       const { id } = req.params;
@@ -53,7 +53,7 @@ const RecordingsController = () => {
     }
   };
 
-// delete recording by id
+  // delete recording by id
   const deleteRecordingById = async (req, res) => {
     try {
       const { id } = req.params;
