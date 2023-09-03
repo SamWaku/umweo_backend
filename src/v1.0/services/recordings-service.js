@@ -9,17 +9,17 @@ const RecordingsService = () => {
     const recording = await recordingsRepository.getRecordingById(id);
     return recording;
   };
-  const UpdateRecordingByID=async(id,data)=>{
-    const recording=await recordingsRepository.updateRecording(id,data);
+  const UpdateRecordingByID = async (id, data) => {
+    const recording = await recordingsRepository.updateRecording(id, data);
     return recording;
-  }
-  const DeleteRecordingByID=async(id)=>{
+  };
+  const DeleteRecordingByID = async (id) => {
     await recordingsRepository.deleteRecording(id);
-  }
+  };
   return {
     CreateRecording,
     GetRecordingByID,
-    DeleteRecordingByID
+    DeleteRecordingByID,
   };
 };
 
