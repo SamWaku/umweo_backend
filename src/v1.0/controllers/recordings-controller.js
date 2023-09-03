@@ -1,6 +1,7 @@
 const recordingsService = require("../services/recordings-service");
 
 const RecordingsController = () => {
+    // create recording
   const createRecording = async (req, res) => {
     try {
       const data = req.body;
@@ -14,6 +15,8 @@ const RecordingsController = () => {
       console.log(error);
     }
   };
+  
+// get recording by id
   const getRecordingById = async (req, res) => {
     try {
       const { id } = req.params;
@@ -30,6 +33,8 @@ const RecordingsController = () => {
       console.log(error);
     }
   };
+
+// update recording by id
   const updateRecordingById = async (req, res) => {
     try {
       const { id } = req.params;
@@ -47,6 +52,8 @@ const RecordingsController = () => {
       console.log(error);
     }
   };
+
+// delete recording by id
   const deleteRecordingById = async (req, res) => {
     try {
       const { id } = req.params;
