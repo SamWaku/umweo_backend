@@ -1,11 +1,15 @@
 const { prisma } = require("../config/db");
 
 const RecordingsRepository = () => {
+
+  // create recording
   const createRecording = (data) => {
     return prisma.recordings.create({
       data,
     });
   };
+
+  // get recording
   const getRecordingById = async (id) => {
     return prisma.recordings.findUnique({
       where: {
