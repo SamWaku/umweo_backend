@@ -24,6 +24,7 @@ const RecordingsRepository = () => {
   return {
     createRecording,
     getRecordingById,
+    updateRecord
   };
 };
 
