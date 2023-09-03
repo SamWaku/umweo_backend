@@ -27,6 +27,7 @@ const RecordingsRepository = () => {
       data,
     });
   };
+  
   // delete recording by id
   const deleteRecording = async (id) => {
     return prisma.recordings.delete({
