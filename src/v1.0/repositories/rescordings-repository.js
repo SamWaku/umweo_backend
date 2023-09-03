@@ -22,12 +22,17 @@ const RecordingsRepository = () => {
     });
   };
   const deleteRecording=async(id)=>{
-    
+    return prisma.recordings.delete({
+        where:{
+            id
+        }
+    })
   }
   return {
     createRecording,
     getRecordingById,
     updateRecording,
+    deleteRecording
   };
 };
 
