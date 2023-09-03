@@ -1,16 +1,16 @@
-const { prisma } = require("../config/db");
+const { ActivityModel } = require("../models/activity-model");
 
 const ActivityRepository = () => {
   // create activity
   const CreateActivity = async (data) => {
-    return prisma.activity.create({
+    return ActivityModel.create({
       data,
     });
   };
 
   // get activity by ID
   const GetActivityByID = async (id) => {
-    return prisma.activity.findUnique({
+    return ActivityModel.findUnique({
       where: {
         id: parseInt(id),
       },
@@ -19,7 +19,7 @@ const ActivityRepository = () => {
 
   // update activity by ID
   const UpdateActivityByID = async (id, data) => {
-    return prisma.activity.update({
+    return ActivityModel.update({
       where: {
         id: parseInt(id),
       },
@@ -29,7 +29,7 @@ const ActivityRepository = () => {
 
   // delete activity by ID
   const DeleteActivityByID = async (id) => {
-    return prisma.activity.delete({
+    return ActivityModel.delete({
       where: {
         id: parseInt(id),
       },
