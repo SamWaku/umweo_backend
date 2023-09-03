@@ -60,7 +60,8 @@ const RecordingsController=()=>{
     return{
         createRecording,
         getRecordingById,
-        updateRecordingById
+        updateRecordingById,
+        deleteRecordingById
     }
 }
 
