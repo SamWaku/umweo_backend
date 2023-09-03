@@ -9,6 +9,10 @@ const RecordingsService = () => {
     const recording = await recordingsRepository.getRecordingById(id);
     return recording;
   };
+  const UpdateRecordingByID=async(id,data)=>{
+    const recording=await recordingsRepository.updateRecording(id,data);
+    return recording;
+  }
   return {
     CreateRecording,
     GetRecordingByID,
