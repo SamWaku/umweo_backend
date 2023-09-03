@@ -1,9 +1,10 @@
 const { prisma } = require("../config/db");
+const { TaskModel } = require("../models/task-model");
 
 const TaskRepository = () => {
   // Create task
   const createTask = async (data) => {
-    return prisma.tasks.create({
+    return TaskModel.create({
       data,
     });
   };
