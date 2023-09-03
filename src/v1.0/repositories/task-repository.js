@@ -1,4 +1,3 @@
-const { prisma } = require("../config/db");
 const { TaskModel } = require("../models/task-model");
 
 const TaskRepository = () => {
@@ -11,12 +10,12 @@ const TaskRepository = () => {
 
   // Get tasks
   const getTasks = async () => {
-    return prisma.tasks.findMany();
+    return TaskModel.findMany();
   };
 
   // Get task by id
   const getTaskById = async (id) => {
-    return prisma.tasks.findUnique({
+    return TaskModel.findUnique({
       where: {
         id: parseInt(id),
       },
@@ -25,7 +24,7 @@ const TaskRepository = () => {
 
   // Update task by id
   const updateTask = async (id, data) => {
-    return prisma.tasks.update({
+    return TaskModel.update({
       where: {
         id: parseInt(id),
       },
@@ -35,7 +34,7 @@ const TaskRepository = () => {
 
   // Delete task by id
   const deleteTaskById = async (id) => {
-    return prisma.tasks.delete({
+    return TaskModel.delete({
       where: {
         id: parseInt(id),
       },
