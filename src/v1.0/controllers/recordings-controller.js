@@ -30,6 +30,17 @@ const RecordingsController=()=>{
             console.log(error);
         }
     }
+    const updateRecordingById=async(req,res)=>{
+        try {
+            const {id}=req.params;
+            const data=req.body;
+            const recording=await recordingsService.UpdateRecordingByID(id,data);
+            res.status(200).json(recording);
+        } catch (error) {
+            res.status(400).json(error);
+            console.log(error);
+        }
+    }
     return{
         createRecording,
         getRecordingById
