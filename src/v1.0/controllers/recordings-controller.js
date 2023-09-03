@@ -34,6 +34,9 @@ const RecordingsController=()=>{
                 return res.status(400).json("ID doesn't exist!");
             }
             const data=req.body;
+            if(!data){
+                return res.status(400).json("Enter valid data!");
+            }
             const recording=await recordingsService.UpdateRecordingByID(id,data);
             res.status(200).json(recording);
         } catch (error) {
