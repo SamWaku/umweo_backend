@@ -1,17 +1,16 @@
-const { prisma } = require("../config/db");
+const { RecordingsModel } = require("../models/recordings-model");
 
 const RecordingsRepository = () => {
-
   // create recording
   const createRecording = (data) => {
-    return prisma.recordings.create({
+    return RecordingsModel.create({
       data,
     });
   };
 
   // get recording by id
   const getRecordingById = async (id) => {
-    return prisma.recordings.findUnique({
+    return RecordingsModel.findUnique({
       where: {
         id: parseInt(id),
       },
@@ -20,17 +19,17 @@ const RecordingsRepository = () => {
 
   // update recording by id
   const updateRecording = async (id, data) => {
-    return prisma.recordings.update({
+    return RecordingsModel.update({
       where: {
         id: parseInt(id),
       },
       data,
     });
   };
-  
+
   // delete recording by id
   const deleteRecording = async (id) => {
-    return prisma.recordings.delete({
+    return RecordingsModel.delete({
       where: {
         id: parseInt(id),
       },
