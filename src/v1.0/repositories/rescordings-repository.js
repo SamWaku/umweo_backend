@@ -24,7 +24,7 @@ const RecordingsRepository = () => {
   const deleteRecording=async(id)=>{
     return prisma.recordings.delete({
         where:{
-            id
+            id: parseInt(id)
         }
     })
   }
