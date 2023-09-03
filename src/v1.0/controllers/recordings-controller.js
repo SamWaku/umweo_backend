@@ -10,6 +10,22 @@ const RecordingsController=()=>{
             const recording=await recordingsService.CreateRecording(data);
             res.status(200).json(recording);
         } catch (error) {
+            res.status(400).json(error);
+            console.log(error);
+        }
+    }
+    const getRecordingById=async(req,res)=>{
+        try {
+            const {id}=req.params;
+            if(!id){
+                return res.status(400).json("ID doesn't exist!");
+            }
+            const recording=await recordingsService.GetRecordingByID(id);
+            if(!data){
+                return res.status(400).json("Recording doesn't exist!");
+            }
+            res.status(200).json(recording);
+        } catch (error) {
             
         }
     }
