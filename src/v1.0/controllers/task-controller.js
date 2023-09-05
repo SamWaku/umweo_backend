@@ -5,10 +5,13 @@ const TaskController = () => {
   const CreateTask = async (req, res) => {
     try {
       const {therapistId}=req.params;
+      if (!therapistId) {
+        return res.status(400).json("Enter valid ID");
+      }
       const {title,description,userId} = req.body;
-      // if (!data) {
-      //   return res.status(400).json("Enter valid data!");
-      // }
+      if (!title||!description||!userId) {
+        return res.status(400).json("Enter valid data!");
+      }
       const task = await taskService.createTask(title,description,userId,therapistId);
       res.status(200).json(task);
     } catch (error) {
