@@ -2,9 +2,14 @@ const { TaskModel } = require("../models/task-model");
 
 const TaskRepository = () => {
   // Create task
-  const createTask = async (data) => {
+  const createTask = async (title,description,userId,therapistId) => {
     return TaskModel.create({
-      data,
+      data:{
+        title,
+        description,
+        userId,
+        therapistId:parseInt(therapistId)
+      }
     });
   };
 

@@ -4,11 +4,12 @@ const TaskController = () => {
   //Create task
   const CreateTask = async (req, res) => {
     try {
-      const data = req.body;
-      if (!data) {
-        return res.status(400).json("Enter valid data!");
-      }
-      const task = await taskService.createTask(data);
+      const {therapistId}=req.params;
+      const {title,description,userId} = req.body;
+      // if (!data) {
+      //   return res.status(400).json("Enter valid data!");
+      // }
+      const task = await taskService.createTask(title,description,userId,therapistId);
       res.status(200).json(task);
     } catch (error) {
       res.status(400).json(error);

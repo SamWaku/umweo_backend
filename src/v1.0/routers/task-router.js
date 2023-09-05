@@ -3,7 +3,7 @@ const taskController = require("../controllers/task-controller");
 const router = require("express").Router();
 
 // create task /tasks
-router.post("/", taskController.CreateTask);
+router.post("/:therapistId", taskController.CreateTask);
 
 // get task by id /tasks/:id
 router.get("/:id", taskController.GetTaskById);
