@@ -1,6 +1,6 @@
-const scheduleService = require("../services/schedule-service");
+// serviceContainer->scheduleservice->...nservice
 
-const ScheduleController = () => {
+const ScheduleController = (serviceContainer) => {
   // post schedule
   const CreateSchedule = async (req, res) => {
     try {
@@ -8,7 +8,7 @@ const ScheduleController = () => {
       if (!data) {
         return res.status(400).json("Enter valid Data");
       }
-      const schedule = await scheduleService.CreateSchedule(data);
+      const schedule = await serviceContainer.scheduleservice.CreateSchedule(data);
       res.status(200).json(schedule);
     } catch (error) {
       res.status(400).json(error);
@@ -23,7 +23,7 @@ const ScheduleController = () => {
       if (!id) {
         return res.status(400).json("Enter valid ID");
       }
-      const schedule = await scheduleService.GetScheduleById(id);
+      const schedule = await serviceContainer.scheduleservice.GetScheduleById(id);
       if (!schedule) {
         return res.status(400).json("Schedule doesn't exist");
       }
@@ -45,7 +45,7 @@ const ScheduleController = () => {
       if (!data) {
         return res.status(400).json("Enter valid Data");
       }
-      const UpdatedSchedule = await scheduleService.UpdateSchedule(id, data);
+      const UpdatedSchedule = await serviceContainer.scheduleservice.UpdateSchedule(id, data);
       res.status(200).json(UpdatedSchedule);
     } catch (error) {
       res.status(400).json(error);
@@ -60,7 +60,7 @@ const ScheduleController = () => {
       if (!id) {
         return res.status(400).json("Invalid ID");
       }
-      await scheduleService.DeleteSchedule(id);
+      await serviceContainer.scheduleservice.DeleteSchedule(id);
       res.status(200).json("schedule deleted");
     } catch (error) {
       res.status(400).json(error);
@@ -76,4 +76,4 @@ const ScheduleController = () => {
   };
 };
 
-module.exports = ScheduleController();
+module.exports = ScheduleController;

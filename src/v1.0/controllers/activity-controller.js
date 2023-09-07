@@ -1,6 +1,6 @@
-const activityService = require("../services/activity-service");
+// serviceContainer->activityservice->...nservice
 
-const ActivityController = () => {
+const ActivityController = (serviceContainer) => {
   // create activity
   const CreateActivity = async (req, res) => {
     try {
@@ -8,7 +8,7 @@ const ActivityController = () => {
       if (!data) {
         return res.status(400).json("Enter valid data");
       }
-      const activity = await activityService.createActivity(data);
+      const activity = await serviceContainer.activityservice.createActivity(data);
       res.status(200).json(activity);
     } catch (error) {
       console.log(error);
@@ -23,7 +23,7 @@ const ActivityController = () => {
       if (!id) {
         return res.status(400).json("Enter valid ID");
       }
-      const activity = await activityService.getActivityById(id);
+      const activity = await serviceContainer.activityservice.getActivityById(id);
       if (!activity) {
         return res.status(400).json("Activity doesn't exist");
       }
@@ -45,7 +45,7 @@ const ActivityController = () => {
       if (!data) {
         return res.status(400).json("Enter valid data");
       }
-      const activity = await activityService.updateActivity(id, data);
+      const activity = await serviceContainer.activityservice.updateActivity(id, data);
       res.status(200).json(activity);
     } catch (error) {
       console.log(error);
@@ -60,7 +60,7 @@ const ActivityController = () => {
       if (!id) {
         return res.status(400).json("Enter valid ID");
       }
-      await activityService.deleteActivity(id);
+      await serviceContainer.activityservice.deleteActivity(id);
       res.status(200).json("Activity deleted");
     } catch (error) {
       console.log(error);
@@ -75,4 +75,4 @@ const ActivityController = () => {
   };
 };
 
-module.exports = ActivityController();
+module.exports = ActivityController;

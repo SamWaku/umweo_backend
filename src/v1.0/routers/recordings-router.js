@@ -1,17 +1,28 @@
-const recordingsController = require("../controllers/recordings-controller");
+// RecordingsControllerHandler->RecordingsController->ServiceContainer->..nservice
 
+const ServiceContainer = require('../services');
 const RecordingsRouter = require("express").Router();
+const RecordingsController = require("../controllers/recordings-controller");
+const RecordingsControllerHandler = RecordingsController(ServiceContainer);
 
 // create recording i.e /recordings/
-RecordingsRouter.post("/", recordingsController.createRecording);
+RecordingsRouter.post("/", (req, res) => 
+    RecordingsControllerHandler.createRecording(req, res)
+); 
 
 // get recording by id i.e /recordings/:id
-RecordingsRouter.get("/:id", recordingsController.getRecordingById);
+RecordingsRouter.get("/:id", (req, res) =>
+    RecordingsControllerHandler.getRecordingById(req, res)
+);
 
 // update recording by id i.e /recordings/:id
-RecordingsRouter.put("/:id", recordingsController.updateRecordingById);
+RecordingsRouter.put("/:id", (req, res) =>
+    RecordingsControllerHandler.updateRecordingById(req, res)
+);
 
 // delete recording by id i.e /recordings/:id
-RecordingsRouter.delete("/:id", recordingsController.deleteRecordingById);
+RecordingsRouter.delete("/:id", (req, res) =>
+    RecordingsControllerHandler.deleteRecordingById(erq, res)
+);
 
 module.exports = RecordingsRouter;

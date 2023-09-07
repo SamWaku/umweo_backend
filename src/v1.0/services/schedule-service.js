@@ -31,4 +31,4 @@ const ScheduleService = () => {
   };
 };
 
-module.exports = ScheduleService();
+module.exports = ScheduleService;
