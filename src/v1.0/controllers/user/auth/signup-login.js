@@ -18,7 +18,7 @@ exports.CreateUser = async (req, res) => {
       },
     });
     if (userExists) {
-      throw new Error("User already exists");
+      return res.status(400).json("User already exists!");
     }
 
     const newUser = {
@@ -41,10 +41,7 @@ exports.CreateUser = async (req, res) => {
       message: `User successfully Registered`,
     });
   } catch (error) {
-    res.status(500).send({
-      status: 500,
-      error: error.message,
-    });
+    res.status(500).json(error);
   }
 };
 
