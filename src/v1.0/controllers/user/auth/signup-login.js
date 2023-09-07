@@ -53,7 +53,7 @@ exports.LoginUser = async (req, res) => {
   //return res.send("login")
   try {
     const { email, password } = req.body;
-    const user = await UserModel.findUnique({ where: { email: email } });
+    const user = await UserModel.findUnique({ where: { email } });
     if (!user) {
       return res
         .status(401)
