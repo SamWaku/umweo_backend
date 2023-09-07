@@ -1,6 +1,6 @@
-const recordingsService = require("../services/recordings-service");
+// serviceContainer->recordingservice->...nservice
 
-const RecordingsController = () => {
+const RecordingsController = (serviceContainer) => {
   // create recording
   const createRecording = async (req, res) => {
     try {
@@ -8,7 +8,7 @@ const RecordingsController = () => {
       if (!data) {
         return res.status(400).json("Enter valid data!");
       }
-      const recording = await recordingsService.CreateRecording(data);
+      const recording = await serviceContainer.recordingservice.CreateRecording(data);
       res.status(200).json(recording);
     } catch (error) {
       res.status(400).json(error);
@@ -23,7 +23,7 @@ const RecordingsController = () => {
       if (!id) {
         return res.status(400).json("ID doesn't exist!");
       }
-      const recording = await recordingsService.GetRecordingByID(id);
+      const recording = await serviceContainer.recordingservice.GetRecordingByID(id);
       if (!recording) {
         return res.status(400).json("Recording doesn't exist!");
       }
@@ -45,7 +45,7 @@ const RecordingsController = () => {
       if (!data) {
         return res.status(400).json("Enter valid data!");
       }
-      const recording = await recordingsService.UpdateRecordingByID(id, data);
+      const recording = await serviceContainer.recordingservice.UpdateRecordingByID(id, data);
       res.status(200).json(recording);
     } catch (error) {
       res.status(400).json(error);
@@ -60,7 +60,7 @@ const RecordingsController = () => {
       if (!id) {
         return res.status(400).json("ID doesn't exist!");
       }
-      await recordingsService.DeleteRecordingByID(id);
+      await serviceContainer.recordingservice.DeleteRecordingByID(id);
       res.status(200).json("Recording Deleted");
     } catch (error) {
       res.status(400).json(error);
@@ -75,4 +75,4 @@ const RecordingsController = () => {
   };
 };
 
-module.exports = RecordingsController();
+module.exports = RecordingsController;

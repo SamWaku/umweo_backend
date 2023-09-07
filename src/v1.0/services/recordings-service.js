@@ -31,4 +31,4 @@ const RecordingsService = () => {
   };
 };
 
-module.exports = RecordingsService();
+module.exports = RecordingsService;

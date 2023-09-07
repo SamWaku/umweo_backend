@@ -1,20 +1,33 @@
-const taskController = require("../controllers/task-controller");
+// TaskControllerHandler->TaskController->ServiceContainer->..nservice
 
-const router = require("express").Router();
+const ServiceContainer = require('../services');
+const TaskRouter = require("express").Router();
+const TaskController = require("../controllers/task-controller");
+const TaskControllerHandler = TaskController(ServiceContainer);
 
 // create task /tasks
-router.post("/:therapistId", taskController.CreateTask);
+TaskRouter.post("/:therapistId", (req, res) => 
+    TaskControllerHandler.CreateTask(req, res)
+);
 
 // get task by id /tasks/:id
-router.get("/:id", taskController.GetTaskById);
+TaskRouter.get("/:id", (req, res) => 
+    TaskControllerHandler.GetTaskById(req,res)
+);
 
 // get tasks by id /tasks
-router.get("/", taskController.GetTasks);
+TaskRouter.get("/", (req, res) => 
+    TaskControllerHandler.GetTasks(req, res)
+);
 
 // update task by id /tasks/:id
-router.put("/:id", taskController.UpdateTaskById);
+TaskRouter.put("/:id", (req,res) => 
+    TaskControllerHandler.UpdateTaskById(req, res)
+);
 
 // delete task by id /tasks/:id
-router.delete("/:id", taskController.DeleteTaskById);
+TaskRouter.delete("/:id", (req,res) =>
+    TaskControllerHandler.DeleteTaskById(req, res)
+);
 
-module.exports = router;
+module.exports = TaskRouter;

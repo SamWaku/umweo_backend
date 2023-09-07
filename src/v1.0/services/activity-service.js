@@ -31,4 +31,4 @@ const ActivityService = () => {
   };
 };
 
-module.exports = ActivityService();
+module.exports = ActivityService;

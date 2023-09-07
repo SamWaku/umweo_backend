@@ -1,6 +1,6 @@
-const taskService = require("../services/task-service");
+// serviceContainer->taskservice->...nservice
 
-const TaskController = () => {
+const TaskController = (serviceContainer) => {
   //Create task
   const CreateTask = async (req, res) => {
     try {
@@ -9,7 +9,7 @@ const TaskController = () => {
       // if (!data) {
       //   return res.status(400).json("Enter valid data!");
       // }
-      const task = await taskService.createTask(title,description,userId,therapistId);
+      const task = await serviceContainer.taskservice.createTask(title,description,userId,therapistId);
       res.status(200).json(task);
     } catch (error) {
       res.status(400).json(error);
@@ -24,7 +24,7 @@ const TaskController = () => {
       if (!id) {
         return res.status(400).json("Enter valid ID!");
       }
-      const task = await taskService.getTaskById(id);
+      const task = await serviceContainer.taskservice.getTaskById(id);
       if (!task) {
         return res.status(400).json("Task doesn't exist!");
       }
@@ -38,7 +38,7 @@ const TaskController = () => {
   // Get tasks
   const GetTasks = async (req, res) => {
     try {
-      const tasks = await taskService.getTasks();
+      const tasks = await serviceContainer.taskservice.getTasks();
       if (!tasks) {
         return res.status(400).json("Tasks unavailable");
       }
@@ -60,7 +60,7 @@ const TaskController = () => {
       if (!data) {
         return res.status(400).json("Enter valid data!");
       }
-      const task = await taskService.updateTask(id, data);
+      const task = await serviceContainer.taskservice.updateTask(id, data);
       res.status(200).json(task);
     } catch (error) {
       res.status(400).json(error);
@@ -75,7 +75,7 @@ const TaskController = () => {
       if (!id) {
         return res.status(400).json("Enter valid ID!");
       }
-      await taskService.deleteTask(id);
+      await serviceContainer.taskservice.deleteTask(id);
       res.status(200).json("Task Deleted");
     } catch (error) {
       res.status(400).json(error);
@@ -91,4 +91,4 @@ const TaskController = () => {
   };
 };
 
-module.exports = TaskController();
+module.exports = TaskController;
