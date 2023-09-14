@@ -29,7 +29,7 @@ exports.CreateUser = async (req, res) => {
 
     newUser.password = bcrypt.hashSync(newUser.password, 12);
 
-    await UserModel.create({
+    const user=await UserModel.create({
       data: {
         name: newUser.name,
         email: newUser.email,
@@ -37,6 +37,7 @@ exports.CreateUser = async (req, res) => {
       },
     });
     res.status(201).json({
+      userid: user.id,
       success: true,
       message: `User successfully Registered`,
     });
