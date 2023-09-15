@@ -1,1 +1,1 @@
-const{}=require('../../../models/therapist-model');
+const{TherpistModel}=require('../../../models/therapist-model');
