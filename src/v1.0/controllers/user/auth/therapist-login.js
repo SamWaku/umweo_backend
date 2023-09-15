@@ -1,4 +1,4 @@
-const{TherpistModel}=require('../../../models/therapist-model');
+const{TherapistModel}=require('../../../models/therapist-model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
@@ -11,7 +11,7 @@ const { JWT_SECRET } = process.env;
 exports.CreateTherapist = async (req, res) => {
     try {
         const {name, email, password } = req.body;
-        const userExists = await TherpistModel.findUnique({
+        const userExists = await TherapistModel.findUnique({
             where: {
                 email: email
             }
@@ -20,19 +20,19 @@ exports.CreateTherapist = async (req, res) => {
             throw new Error("User already exists")
         }
 
-        const newUser = {
+        const newLecture = {
             name,
             email,
             password,
         }
 
-        newUser.password = bcrypt.hashSync(newUser.password, 12);
+        newLecture.password = bcrypt.hashSync(newUser.password, 12);
 
-        await UserModel.create({
+        await TherapistModel.create({
             data:{
-                name:newUser.name,
-                email:newUser.email,
-                password:newUser.password
+                name:newLecture.name,
+                email:newLecture.email,
+                password:newLecture.password
             }
         })
         res.status(201).json({
@@ -48,11 +48,11 @@ exports.CreateTherapist = async (req, res) => {
 }
 
 // login functionality
-exports.LoginUser = async (req, res) => {
+exports.LoginTherapist = async (req, res) => {
     //return res.send("login")
     try {
         const { email, password } = req.body;
-        const user = await UserModel.findUnique({ where: { email: email } })
+        const user = await TherapistModel.findUnique({ where: { email: email } })
         if (!user) {
             return res.status(401).json({ message: "Don't have an account? Please Register!",});
         }

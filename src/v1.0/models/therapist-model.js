@@ -1,3 +1,3 @@
 const { prisma } = require("../config/db");
 
-exports.TherpistModel = prisma.therapist;
+exports.TherapistModel = prisma.therapist;
