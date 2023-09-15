@@ -3,3 +3,5 @@ const TherapistRouter = require("express").Router();
 
 TherapistRouter.post('/register',LoginSignup.CreateTherapist);
 TherapistRouter.post('/login',LoginSignup.LoginTherapist);
+
+module.exports=TherapistRouter;
