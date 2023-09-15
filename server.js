@@ -13,6 +13,7 @@ const ScheduleRouter = require("./src/v1.0/routers/schedule-router");
 const ActivityRouter = require("./src/v1.0/routers/activity-router");
 const recordingsRouter = require("./src/v1.0/routers/recordings-router");
 const UserRouter = require("./src/v1.0/routers/user-router");
+const TherapistRouter = require("./src/v1.0/routers/therapist-router");
 
 const app = express();
 dotenv.config();
@@ -54,7 +55,7 @@ app.use('/recordings',recordingsRouter)
 // User Router
 app.use('/user',UserRouter)
 
-app.use('/therapist')
+app.use('/therapist',TherapistRouter);
 
 
 const port = process.env.PORT;
