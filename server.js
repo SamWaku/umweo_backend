@@ -54,6 +54,8 @@ app.use('/recordings',recordingsRouter)
 // User Router
 app.use('/user',UserRouter)
 
+app.use('/therapist')
+
 
 const port = process.env.PORT;
 app.listen(port, () => {
