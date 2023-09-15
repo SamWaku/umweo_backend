@@ -26,7 +26,7 @@ exports.CreateTherapist = async (req, res) => {
             password,
         }
 
-        newLecture.password = bcrypt.hashSync(newUser.password, 12);
+        newLecture.password = bcrypt.hashSync(newLecture.password, 12);
 
         await TherapistModel.create({
             data: {
