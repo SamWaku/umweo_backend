@@ -1,6 +1,6 @@
 const ActivityService = require('./activity-service');
 const RecordingService = require('./recordings-service');
-const ScheduleService = require('./recordings-service');
+const ScheduleService = require('./schedule-service');
 const TaskService = require('./task-service');
 const UserService = require('./user-service');
 
