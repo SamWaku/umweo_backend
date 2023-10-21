@@ -20,19 +20,19 @@ exports.CreateTherapist = async (req, res) => {
             throw new Error("User already exists")
         }
 
-        const newLecture = {
+        const newTherapist = {
             name,
             email,
             password,
         }
 
-        newLecture.password = bcrypt.hashSync(newLecture.password, 12);
+        newTherapist.password = bcrypt.hashSync(newTherapist.password, 12);
 
         await TherapistModel.create({
             data: {
-                name: newLecture.name,
-                email: newLecture.email,
-                password: newLecture.password
+                name: newTherapist.name,
+                email: newTherapist.email,
+                password: newTherapist.password
             }
         })
         res.status(201).json({
