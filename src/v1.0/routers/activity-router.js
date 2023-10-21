@@ -5,6 +5,11 @@ const ActivityController = require("../controllers/activity-controller");
 const ActivityRouter = require("express").Router();
 const ActivityControllerHandler = ActivityController(ServiceContainer);
 
+// get all activity
+ActivityRouter.get('/',(req,res) => 
+    ActivityControllerHandler.GetAllActivities()
+);
+
 // create activity i.e /activity
 ActivityRouter.post("/", (req, res) => 
     ActivityControllerHandler.CreateActivity(req, res)
