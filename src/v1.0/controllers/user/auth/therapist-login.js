@@ -67,7 +67,6 @@ exports.LoginTherapist = async (req, res) => {
 
         res.status(200).send({
             name:user.name,
-            email:user.email,
             userid: user.id,
             token: token,
             message: "login successful",
