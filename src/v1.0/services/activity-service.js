@@ -29,6 +29,7 @@ const ActivityService = () => {
     await activityRepository.DeleteActivityByID(id);
   };
   return {
+    getAllActivities,
     createActivity,
     updateActivity,
     deleteActivity,
