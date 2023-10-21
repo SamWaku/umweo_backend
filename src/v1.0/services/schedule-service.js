@@ -1,6 +1,7 @@
 const ScheduleRepository = require("../repositories/schedule-repository");
 
 const ScheduleService = () => {
+  
   // get all schedules
   const GetAllSchedules = async () => {
     const schedules = await ScheduleRepository.getAllSchedules();
