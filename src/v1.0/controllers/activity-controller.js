@@ -1,12 +1,10 @@
 // serviceContainer->activityservice->...nservice
 
-const { activityservice } = require("../services");
-
 const ActivityController = (serviceContainer) => {
   // get all activities
   const GetAllActivities = async (req,res) => {
     try {
-      const activities=await activityservice.getAllActivities();
+      const activities=await serviceContainer.activityservice.getAllActivities();
       res.status(200).json(activities);
     } catch (error) {
       console.log(error);
