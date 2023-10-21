@@ -1,6 +1,10 @@
 const { ScheduleModel } = require("../models/schedule-model");
 
 const ScheduleRepository = () => {
+  // get all schedules
+  const getAllSchedules = async () => {
+    return ScheduleModel.findMany();
+  };
 
   // get schedule by ID
   const getScheduleById = async (id) => {
