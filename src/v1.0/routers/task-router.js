@@ -5,6 +5,9 @@ const TaskRouter = require("express").Router();
 const TaskController = require("../controllers/task-controller");
 const TaskControllerHandler = TaskController(ServiceContainer);
 
+// get all tasks
+TaskRouter.get("/",(req, res) =>TaskControllerHandler.GetTasks(req,res));
+
 // create task /tasks
 TaskRouter.post("/:therapistId", (req, res) => 
     TaskControllerHandler.CreateTask(req, res)
