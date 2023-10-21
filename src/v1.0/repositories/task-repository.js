@@ -1,9 +1,14 @@
 const { TaskModel } = require("../models/task-model");
 
 const TaskRepository = () => {
+  //get all tasks
+  const getAllTasks =async() => { 
+    return await TaskModel.findMany();
+  }
+
   // Create task
   const createTask = async (title,description,userId,therapistId) => {
-    return TaskModel.create({
+    return await TaskModel.create({
       data:{
         title,
         description,
