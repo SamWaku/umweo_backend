@@ -1,6 +1,15 @@
 // serviceContainer->activityservice->...nservice
 
 const ActivityController = (serviceContainer) => {
+  // get all activities
+  const GetAllActivities = async () => {
+    try {
+      const activities=await serviceContainer.activityservice.GetAllActivities();
+    } catch (error) {
+      console.log(error);
+      res.status(400).json(error);
+    }
+  }
   // create activity
   const CreateActivity = async (req, res) => {
     try {
@@ -72,6 +81,7 @@ const ActivityController = (serviceContainer) => {
     GetActivityById,
     UpdateActivityById,
     DeleteActivityByID,
+    GetAllActivities,
   };
 };
 
