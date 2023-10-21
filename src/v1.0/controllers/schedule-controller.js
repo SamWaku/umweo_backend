@@ -80,6 +80,7 @@ const ScheduleController = (serviceContainer) => {
   };
 
   return {
+    getAllSchedules,
     GetScheduleByID,
     DeleteScheduleByID,
     UpdateScheduleByID,

@@ -5,6 +5,9 @@ const ServiceContainer = require('../services');
 const ScheduleController = require("../controllers/schedule-controller");
 const ScheduleControllerHandler = ScheduleController(ServiceContainer);
 
+//get all schedules
+ScheduleRouter.get("/",(req,res)=>ScheduleControllerHandler.getAllSchedules(req,res)); 
+
 // post schedule i.e /schedule
 ScheduleRouter.post("/", (req, res) =>
     ScheduleControllerHandler.CreateSchedule(req, res)
