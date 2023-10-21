@@ -30,6 +30,7 @@ const ScheduleService = () => {
     return schedule;
   };
   return {
+    getAllSchedules,
     GetScheduleById,
     CreateSchedule,
     DeleteSchedule,
