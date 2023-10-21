@@ -1,6 +1,17 @@
 // serviceContainer->scheduleservice->...nservice
 
 const ScheduleController = (serviceContainer) => {
+  // get all schedules
+  const getAllSchedules = async (req,res) => {
+    try {
+      const schedules = await serviceContainer.scheduleservice.getAllSchedules();
+      res.status(200).json(schedules);
+    } catch (error) {
+      res.status(400).json(error);
+      console.log(error);
+    }
+  };
+
   // post schedule
   const CreateSchedule = async (req, res) => {
     try {
