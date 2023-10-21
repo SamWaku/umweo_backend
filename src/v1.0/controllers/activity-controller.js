@@ -2,9 +2,10 @@
 
 const ActivityController = (serviceContainer) => {
   // get all activities
-  const GetAllActivities = async () => {
+  const GetAllActivities = async (req,res) => {
     try {
       const activities=await serviceContainer.activityservice.GetAllActivities();
+      res.status(200).json(activities);
     } catch (error) {
       console.log(error);
       res.status(400).json(error);
