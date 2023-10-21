@@ -1,6 +1,21 @@
 // serviceContainer->taskservice->...nservice
 
 const TaskController = (serviceContainer) => {
+
+  // get all tasks
+  const getAllTasks = async (req, res) => {
+    try {
+      const tasks = await serviceContainer.taskservice.getAllTasks();
+      if (!tasks) {
+        return res.status(400).json("Tasks unavailable");
+      }
+      res.status(200).json(tasks);
+    } catch (error) {
+      res.status(400).json(error);
+      console.log(error);
+    }
+  };
+
   //Create task
   const CreateTask = async (req, res) => {
     try {
