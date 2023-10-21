@@ -7,7 +7,7 @@ const ActivityControllerHandler = ActivityController(ServiceContainer);
 
 // get all activity
 ActivityRouter.get('/',(req,res) => 
-    ActivityControllerHandler.GetAllActivities()
+    ActivityControllerHandler.GetAllActivities(req,res)
 );
 
 // create activity i.e /activity
