@@ -2,7 +2,7 @@ const ScheduleRepository = require("../repositories/schedule-repository");
 
 const ScheduleService = () => {
   // get all schedules
-  const getAllSchedules = async () => {
+  const GetAllSchedules = async () => {
     const schedules = await ScheduleRepository.getAllSchedules();
     return schedules;
   };
@@ -30,7 +30,7 @@ const ScheduleService = () => {
     return schedule;
   };
   return {
-    getAllSchedules,
+    GetAllSchedules,
     GetScheduleById,
     CreateSchedule,
     DeleteSchedule,

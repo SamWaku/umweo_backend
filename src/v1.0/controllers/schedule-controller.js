@@ -2,9 +2,9 @@
 
 const ScheduleController = (serviceContainer) => {
   // get all schedules
-  const getAllSchedules = async (req,res) => {
+  const GetAllSchedule = async (req,res) => {
     try {
-      const schedules = await serviceContainer.scheduleservice.getAllSchedules();
+      const schedules = await serviceContainer.scheduleservice.GetAllSchedules();
       res.status(200).json(schedules);
     } catch (error) {
       res.status(400).json(error);
@@ -80,7 +80,7 @@ const ScheduleController = (serviceContainer) => {
   };
 
   return {
-    getAllSchedules,
+    GetAllSchedule,
     GetScheduleByID,
     DeleteScheduleByID,
     UpdateScheduleByID,

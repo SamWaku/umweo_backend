@@ -6,7 +6,7 @@ const ScheduleController = require("../controllers/schedule-controller");
 const ScheduleControllerHandler = ScheduleController(ServiceContainer);
 
 //get all schedules
-ScheduleRouter.get("/",(req,res)=>ScheduleControllerHandler.getAllSchedules(req,res)); 
+ScheduleRouter.get("/",(req,res)=>ScheduleControllerHandler.GetAllSchedules(req,res)); 
 
 // post schedule i.e /schedule
 ScheduleRouter.post("/", (req, res) =>
