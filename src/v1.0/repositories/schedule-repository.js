@@ -41,6 +41,7 @@ const ScheduleRepository = () => {
     });
   };
   return {
+    getAllSchedules,
     getScheduleById,
     createSchedule,
     updateSchedule,
