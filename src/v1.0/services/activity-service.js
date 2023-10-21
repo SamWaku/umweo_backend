@@ -1,6 +1,11 @@
 const activityRepository = require("../repositories/activity-repository");
 
 const ActivityService = () => {
+  // get all activities
+  const getAllActivities = async () => {
+    const activities = activityRepository.GetAllActivities();
+    return activities;
+  };
   // create activity
   const createActivity = async (data) => {
     const activity = activityRepository.CreateActivity(data);

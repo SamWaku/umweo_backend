@@ -1,6 +1,11 @@
 const { ActivityModel } = require("../models/activity-model");
 
 const ActivityRepository = () => {
+
+  // get all activities
+  const GetAllActivities = async () => {
+    return ActivityModel.findMany();
+  };
   // create activity
   const CreateActivity = async (data) => {
     return ActivityModel.create({
@@ -36,6 +41,7 @@ const ActivityRepository = () => {
     });
   };
   return {
+    GetAllActivities,
     CreateActivity,
     GetActivityByID,
     UpdateActivityByID,
