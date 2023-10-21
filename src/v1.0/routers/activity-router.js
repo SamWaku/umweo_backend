@@ -12,7 +12,7 @@ ActivityRouter.post("/", (req, res) =>
 
 // get activity by ID i.e /activity/:id
 ActivityRouter.get("/:id",(req, res) =>
-    ActivityControllerHandler.UpdateActivityById(req, res)
+    ActivityControllerHandler.GetActivityById(req, res)
 );
 
 // update activity by ID i.e /activity/:id
