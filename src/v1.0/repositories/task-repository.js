@@ -51,6 +51,7 @@ const TaskRepository = () => {
     });
   };
   return {
+    getAllTasks,
     createTask,
     getTasks,
     getTaskById,
