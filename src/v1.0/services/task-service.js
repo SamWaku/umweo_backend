@@ -5,7 +5,7 @@ const TaskService = () => {
   const getAllTasks =async() => { 
     return await taskRepository.getAllTasks();
   }
-  
+
   // Create task
   const createTask = async (title,description,userId,therapistId) => {
     const task = await taskRepository.createTask(title,description,userId,therapistId);
@@ -36,6 +36,7 @@ const TaskService = () => {
   };
 
   return {
+    getAllTasks,
     createTask,
     getTaskById,
     getTasks,
